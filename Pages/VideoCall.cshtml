@@ -2,3 +2,32 @@
 @model webrtc_app.Pages.VideoCallModel
 @{
 }
+
+<head>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div class="d-flex flex-row bd-highlight mb-3 vh-100">
+        
+        <div class="d-flex flex-column p-2 bd-highlight bg-secondary" style="width:25%">
+            <div class="card bg-secondary">
+                <div class="card-body text-white">
+                Users Online
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                User 1
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                User 2
+                </div>
+            </div>
+        </div>
+        <div class="p-2 bd-highlight">Video area</div>
+    </div>
+</body>
