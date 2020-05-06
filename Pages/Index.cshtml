@@ -1,15 +1,25 @@
-﻿@* @page
+﻿ @page
 @model IndexModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "WebRTC";
 }
+<head>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <script src="~/js/signalr/dist/browser/signalr.js"></script>
+</head>
+<body>
+<form method="post">
+  <div class="form-group">
+    <label for="userName">User Name</label>
+    <input asp-for="UserName" type="text" class="form-control" id="userName"  placeholder="Enter User Name">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome aman believ in yo self</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div> *@
-
-@page
+</body>
+@* @page
     <div class="container">
         <div class="row">&nbsp;</div>
         <div class="row">
@@ -38,4 +48,4 @@
         </div>
     </div>
 <script src="~/js/signalr/dist/browser/signalr.js"></script>
-<script src="~/js/chat.js"></script>
+<script src="~/js/chat.js"></script> *@
