@@ -22,12 +22,5 @@ namespace webrtc_app.Pages
         { 
         }
 
-        public IActionResult OnPost()
-        {
-          return RedirectToPage("./VideoCall");
-        }
-
-        [BindProperty]
-        public string UserName {get;set;}
     }
 }

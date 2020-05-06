@@ -10,15 +10,15 @@
     <script src="~/js/signalr/dist/browser/signalr.js"></script>
 </head>
 <body>
-<form method="post">
+<form method="post" asp-page="./VideoCall">
   <div class="form-group">
     <label for="userName">User Name</label>
-    <input asp-for="UserName" type="text" class="form-control" id="userName"  placeholder="Enter User Name">
+    <input  name="UserName" type="text" class="form-control" id="UserName"  placeholder="Enter User Name">
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary" >Submit</button>
 </form>
-
 </body>
+
 @* @page
     <div class="container">
         <div class="row">&nbsp;</div>
