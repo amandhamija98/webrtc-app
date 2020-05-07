@@ -25,6 +25,7 @@ namespace webrtc_app.Pages
         public void OnPost()
         {
             _userName = Request.Form["UserName"].FirstOrDefault();
+            ViewData["UserName"] = _userName;
             //_logger.LogInformation(_userName);
         }
     }
