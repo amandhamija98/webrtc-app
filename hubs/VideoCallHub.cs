@@ -9,7 +9,6 @@ namespace SignalRChat.Hubs
 {
     public class VideoCallHub : Hub
     {    
-        //public ArrayList<UserInfo> ActiveUsers;
 
         public async Task NewUser(string UserName){
             UserInfo NewUserInfo = new UserInfo(){UserName = UserName, ConnectionId  = Context.ConnectionId , OnCall = false};
@@ -21,9 +20,19 @@ namespace SignalRChat.Hubs
             await Clients.Client(NewUserConnectionId).SendAsync("ExistingUserGreeting", ExistingUserInfo);
         }
         
-        // public async Task SendMessage(string user, string message)
-        // {
-        //     await Clients.All.SendAsync("ReceiveMessage", user, message);
-        // }
+        public async Task SendVideoOffer(RTCMessage message){
+            message.Sender = Context.ConnectionId;
+            await Clients.Client(message.Target).SendAsync("ReceiveVideoOffer",message);
+        }
+
+        public async Task SendVideoAnswer(RTCMessage message){
+            message.Sender = Context.ConnectionId;
+            await Clients.Client(message.Target).SendAsync("ReceiveVideoAnswer",message);
+        }
+
+        public async Task SendNewIceCandidate(RTCMessage message){
+            message.Sender = Context.ConnectionId;
+            await Clients.Client(message.Target).SendAsync("ReceiveNewIceCAndidate",message);
+        }
     }
 }
