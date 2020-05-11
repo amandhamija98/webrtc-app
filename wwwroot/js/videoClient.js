@@ -17,7 +17,8 @@ connection.start().then(()=> {
 
 connection.on("NewUserJoined",(newUserInfo)=>{
     activeUsers.push(newUserInfo);
-    var newUserCard = makeNewUserCard(newUserInfo["userName"]);
+    var newUserCard = makeNewUserCard(newUserInfo["userName"],newUserInfo["connectionId"]);
+    console.log(newUserInfo);
     document.getElementById("activeUsersList").appendChild(newUserCard);
     connection.invoke("GreetNewUser",newUserInfo["connectionId"],currentUserName,onCall);
 },(err)=> {
@@ -26,7 +27,7 @@ connection.on("NewUserJoined",(newUserInfo)=>{
 
 connection.on("ExistingUserGreeting",(existingUserInfo)=>{
     activeUsers.push(existingUserInfo);
-    var existingUserCard = makeNewUserCard(existingUserInfo["userName"]);
+    var existingUserCard = makeNewUserCard(existingUserInfo["userName"], existingUserInfo["connectionId"]);
     document.getElementById("activeUsersList").appendChild(existingUserCard);
 }, (err)=>{
     console.error(err.toString());
@@ -34,8 +35,10 @@ connection.on("ExistingUserGreeting",(existingUserInfo)=>{
 
 //Utility Functions
 
-function makeNewUserCard(name){
+function makeNewUserCard(name,id){
     var card = document.createElement("div");
+    card.id = id;
+    card.addEventListener("click",userCardOnClickListener);
     card.classList.add("card");
     var cardBody = document.createElement("div");
     cardBody.classList.add("card-body");
@@ -44,5 +47,9 @@ function makeNewUserCard(name){
     return card;
 }
 
-document.getElementById("vid").innerHTML = UserName;
+function userCardOnClickListener(){
+    console.log(this.id);
+    //document.getElementById("vid").innerHTML = this.id;
+}
 
+//document.getElementById("vid").innerHTML = UserName;
