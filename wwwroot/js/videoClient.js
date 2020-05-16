@@ -52,9 +52,9 @@ function makeNewUserCard(name,id){
     var card = document.createElement("div");
     card.id = id;
     card.addEventListener("click",userCardOnClickListener);
-    card.classList.add("card");
-    var cardBody = document.createElement("div");
-    cardBody.classList.add("card-body");
+    card.classList.add("list-group-item");
+    card.classList.add("active-user-card");
+    var cardBody = document.createElement("h4");
     cardBody.innerText = name;
     card.appendChild(cardBody);
     return card;
@@ -128,12 +128,6 @@ function createPeerConnection() {
       return myPeerConnection.setLocalDescription(offer);
     })
     .then(function() {
-    //   sendToServer({
-    //     name: myUsername,
-    //     target: targetUsername,
-    //     type: "video-offer",
-    //     sdp: myPeerConnection.localDescription
-    //   });
     let msg = {
         sender: "",
         target: targetConnectionId,
@@ -169,14 +163,7 @@ function createPeerConnection() {
     .then(function(answer) {
       return myPeerConnection.setLocalDescription(answer);
     })
-    .then(function() {
-    //   var msg = {
-    //     name: myUsername,
-    //     target: targetUsername,
-    //     type: "video-answer",
-    //     sdp: myPeerConnection.localDescription
-    //   };
-    
+    .then(function() {    
         var message = {
             sender: "",
             target: targetConnectionId,
@@ -204,11 +191,6 @@ function createPeerConnection() {
             sdp: event.candidate
         };
         connection.invoke("SendNewIceCandidate",message);
-    //   sendToServer({
-    //     type: "new-ice-candidate",
-    //     target: targetUsername,
-    //     candidate: event.candidate
-    //   });
     }
   }
 
