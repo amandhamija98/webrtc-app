@@ -12,61 +12,22 @@
     <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/videoCall.css" />
 </head>
-@* <body>
-    <div class="d-flex flex-row bd-highlight mb-3 vh-100">
-        
-        <div class="d-flex flex-column p-2 bd-highlight bg-secondary" style="width:25%">
-            <div class="card bg-secondary">
-                <div class="card-body text-white">
-                Users Online
-                </div>
-            </div>
-            <div id="activeUsersList">
-
-            </div>
-            <div class="card" onclick="random()">
-                <div class="card-body">
-                User 1
-            </div> 
-
-            <div class="card">
-                <div class="card-body">
-                User 2
-                </div>
-            </div> 
-        </div>
-        <div class="p-2 bd-highlight" id="vid">
-            <video class="video-large" id="received_video" autoplay>
-            </video>
-            <video id="vid-small" autoplay muted></video>
-            <button type="button" id="hangup-button" class="btn btn-primary" disabled></button>
-        </div>
-    </div>
-</body> *@
 <body>
     <div class="container-fluid no-padding-container height-100-vh">
   <div class="row height-100-parent">
     <div class="col-xs-3 active-user-list">
         <div class="list-group">
             <div class="list-group-item users-online-card"><h2>Users Online</h3></div>
-            <div class="list-group-item active-user-card"><h4>Link</h4></div>
-            <div class="list-group-item active-user-card"><h4>Link</h4></div>
-            <div class="list-group-item active-user-card"><h4>Link</h4></div>
-            <div class="list-group-item active-user-card"><h4>Link</h4></div>
-            <div class="list-group-item active-user-card"><h4>Link</h4></div>
-            <div class="list-group-item active-user-card"><h4>Link</h4></div>
-            <div class="list-group-item active-user-card"><h4>Link</h4></div>
-            <div class="list-group-item active-user-card"><h4>Link</h4></div>
-            <div class="list-group-item active-user-card"><h4>Link</h4></div>
-            <div class="list-group-item active-user-card"><h4>Link</h4></div>
-            <div class="list-group-item active-user-card"><h4>Link</h4></div>
+            <div id="activeUsersList">
+
+            </div>
           </div>
     </div>
     <div class="col-xs-9 height-100-parent">
         <div class="bd-highlight height-100-parent" id="vid">
             <video class="video-large height-100-parent" id="received_video" autoplay>
             </video>
-            <video class="video-small" autoplay></video>
+            <video class="video-small" id="vid-small" autoplay muted></video>
             @* <button type="button" id="hangup-button" class="btn btn-primary" disabled></button> *@
         </div>
     </div>
